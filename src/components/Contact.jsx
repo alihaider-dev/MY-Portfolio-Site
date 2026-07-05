@@ -50,14 +50,29 @@ function ContactForm() {
     }
     setStatus("sending")
     try {
-      const res = await fetch("/api/contact", {
+      // 1. Verify the Turnstile token server-side (secret key never leaves Vercel)
+      const verify = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ turnstileToken }),
+      })
+      const verified = await verify.json()
+      if (!verified.success) {
+        setStatus("error")
+        window.turnstile?.reset(widgetIdRef.current)
+        return
+      }
+      // 2. Deliver the message via Web3Forms (from the browser, which their
+      //    bot protection trusts)
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
+          access_key: site.web3formsKey,
+          subject: `New project inquiry from ${form.name.value}`,
           name: form.name.value,
           email: form.email.value,
           message: form.message.value,
-          turnstileToken,
         }),
       })
       const data = await res.json()

@@ -16,9 +16,11 @@ export const site = {
   },
   fiverrUrl: "https://www.fiverr.com/elementorhero",
   // Cloudflare Turnstile site key (public). The secret key lives in Vercel's
-  // TURNSTILE_SECRET_KEY env var; submissions are verified in /api/contact.js
-  // and then emailed to alisdevhub@gmail.com via Web3Forms.
+  // TURNSTILE_SECRET_KEY env var; /api/contact.js verifies the token, then
+  // the browser forwards the message to Web3Forms (public access key below),
+  // which emails it to alisdevhub@gmail.com.
   turnstileSiteKey: "0x4AAAAAAAHxAszu3x96ulyC",
+  web3formsKey: "15fc4646-3e1e-44aa-ac6d-84d650e9e64e",
   socials: [
     { label: "Discord", url: "https://discord.gg/your-invite" },
     // { label: "LinkedIn", url: "https://linkedin.com/in/your-profile" },
