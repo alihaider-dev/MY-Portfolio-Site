@@ -2,7 +2,7 @@
 export const site = {
   name: "Ali Haider",
   role: "WordPress Expert",
-  email: "contact@biggervisionagency.com",
+  email: "alisdevhub@gmail.com",
   headlineTop: "WordPress Websites",
   headlineAccent: "That Convert",
   subheadline:
