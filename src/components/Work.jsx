@@ -94,7 +94,7 @@ export default function Work() {
         </Reveal>
         <Reveal delay={0.2}>
           <p className="max-w-sm text-muted">
-            Every project below made my client real money. Hover any card to see the result that mattered most.
+            Real client projects, live on the web right now. Click any card to explore the actual site.
           </p>
         </Reveal>
       </div>
