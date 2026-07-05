@@ -5,13 +5,13 @@
 // While videoUrl is empty ("") the card still renders so you can see the design.
 export const videoTestimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "Founder, Luxe Interiors Studio",
-    videoUrl: "",
+    name: "Mohammad Salah",
+    role: "Business Director, WiConnect",
+    videoUrl: "https://youtu.be/OxJKhU4ML1E",
     thumbnail: null, // optional: "/videos/thumbs/sarah.jpg"
     gradient: ["#f4a203", "#3a2800"],
     quote: "Ali didn't just build us a website — he built us a sales machine.",
-    duration: "1:24",
+    duration: "0:55",
   },
   {
     name: "Marcus Chen",
