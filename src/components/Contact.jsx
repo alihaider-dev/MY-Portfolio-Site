@@ -106,11 +106,7 @@ function ContactForm() {
       </button>
       {status === "error" && (
         <p className="mt-4 text-sm text-red-400">
-          Something went wrong sending your message — please email me directly at{" "}
-          <a href={`mailto:${site.email}`} className="underline decoration-accent underline-offset-4">
-            {site.email}
-          </a>
-          .
+          Something went wrong sending your message — please try again in a moment.
         </p>
       )}
       <p className="mt-4 text-sm text-muted">
@@ -146,12 +142,6 @@ export default function Contact() {
           <div className="mx-auto mt-12 max-w-2xl">
             <ContactForm />
           </div>
-          <p className="mt-8 text-sm text-muted">
-            prefer email? —{" "}
-            <a href={`mailto:${site.email}`} className="text-cream underline decoration-accent underline-offset-4 hover:text-accent">
-              {site.email}
-            </a>
-          </p>
         </Reveal>
       </div>
 

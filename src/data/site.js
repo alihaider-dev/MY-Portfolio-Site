@@ -15,9 +15,8 @@ export const site = {
     sublabel: "Watch my intro",
   },
   fiverrUrl: "https://www.fiverr.com/elementorhero",
-  // Get your free access key at https://web3forms.com (enter your email,
-  // the key arrives instantly) and paste it here to activate the contact form:
-  web3formsKey: "YOUR_WEB3FORMS_ACCESS_KEY",
+  // Web3Forms public access key — submissions are emailed to alisdevhub@gmail.com
+  web3formsKey: "15fc4646-3e1e-44aa-ac6d-84d650e9e64e",
   socials: [
     { label: "Discord", url: "https://discord.gg/your-invite" },
     // { label: "LinkedIn", url: "https://linkedin.com/in/your-profile" },
