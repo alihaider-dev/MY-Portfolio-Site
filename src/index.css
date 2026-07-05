@@ -15,8 +15,10 @@
   --font-body: "Inter", system-ui, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
+/* NOTE: no `scroll-behavior: smooth` here — it breaks anchor navigation in
+   Chromium on this page. Smooth scrolling is handled in App.jsx instead. */
+section[id] {
+  scroll-margin-top: 4.5rem;
 }
 
 body {
@@ -120,7 +122,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
   .grain::after,
   .animate-marquee,
   .animate-marquee-slow,
