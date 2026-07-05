@@ -8,6 +8,12 @@ export const site = {
   subheadline:
     "I help businesses turn their websites into their best salesperson — stunning design, blazing speed, and layouts engineered to convert visitors into customers.",
   discordUrl: "https://discord.gg/your-invite", // ← replace with your real Discord invite
+  introVideo: {
+    url: "https://www.youtube.com/watch?v=vyDMjy3_kY0",
+    thumbnail: "https://i.ytimg.com/vi/vyDMjy3_kY0/hqdefault.jpg",
+    label: "Meet Ali",
+    sublabel: "Watch my intro",
+  },
   socials: [
     { label: "Discord", url: "https://discord.gg/your-invite" },
     // { label: "LinkedIn", url: "https://linkedin.com/in/your-profile" },

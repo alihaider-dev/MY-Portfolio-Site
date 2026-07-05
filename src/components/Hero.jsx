@@ -1,7 +1,9 @@
-import { motion, useScroll, useTransform } from "framer-motion"
+import { useState } from "react"
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
 import { site, stats } from "../data/site"
 import Counter from "./Counter"
 import MagneticButton from "./MagneticButton"
+import VideoModal from "./VideoModal"
 
 const container = {
   hidden: {},
@@ -16,6 +18,7 @@ export default function Hero() {
   const { scrollY } = useScroll()
   const glowY = useTransform(scrollY, [0, 600], [0, 180])
   const fade = useTransform(scrollY, [0, 500], [1, 0])
+  const [playingIntro, setPlayingIntro] = useState(false)
 
   return (
     <section id="top" className="bg-grid relative flex min-h-svh flex-col justify-center overflow-hidden pt-28 pb-16">
@@ -80,6 +83,30 @@ export default function Hero() {
               <span className="rotate-90 text-sm">→</span>
             </a>
           </MagneticButton>
+
+          {site.introVideo && (
+            <button
+              onClick={() => setPlayingIntro(true)}
+              className="group flex items-center gap-4 rounded-full py-2 pl-2 pr-6 transition-colors duration-300 hover:bg-surface"
+            >
+              <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-accent">
+                <img
+                  src={site.introVideo.thumbnail}
+                  alt={site.introVideo.label}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <span className="absolute inset-0 flex items-center justify-center bg-ink/40 text-sm text-cream transition-colors duration-300 group-hover:bg-ink/10">
+                  ▶
+                </span>
+              </span>
+              <span className="text-left">
+                <span className="block font-display font-semibold text-cream transition-colors duration-300 group-hover:text-accent">
+                  {site.introVideo.label}
+                </span>
+                <span className="block text-sm text-muted">{site.introVideo.sublabel}</span>
+              </span>
+            </button>
+          )}
         </motion.div>
 
         <motion.div
@@ -114,6 +141,17 @@ export default function Hero() {
           ↓
         </motion.span>
       </motion.a>
+
+      <AnimatePresence>
+        {playingIntro && (
+          <VideoModal
+            title={site.name}
+            subtitle={site.role}
+            videoUrl={site.introVideo.url}
+            onClose={() => setPlayingIntro(false)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   )
 }
