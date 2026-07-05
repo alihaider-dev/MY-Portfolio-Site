@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
+/* Brand palette from the alihaider.dev logo:
+   navy #1B1A2A · orange #F4A203 · white */
 @theme {
-  --color-ink: #060607;
-  --color-surface: #0e0e11;
-  --color-line: #1f1f24;
-  --color-accent: #c9f24b;
-  --color-accent-dim: #a8cc3a;
-  --color-violet: #a78bfa;
-  --color-cream: #f4f4f0;
-  --color-muted: #8b8b93;
+  --color-ink: #100f1a;
+  --color-surface: #1b1a2a;
+  --color-line: #2c2b3f;
+  --color-accent: #f4a203;
+  --color-accent-dim: #c98600;
+  --color-violet: #5865f2;
+  --color-cream: #f7f6f2;
+  --color-muted: #928fa4;
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
 }

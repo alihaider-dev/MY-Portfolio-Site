@@ -32,8 +32,8 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#top" className="font-display text-xl font-bold tracking-tight">
-          Ali<span className="text-accent">.</span>Haider
+        <a href="#top" className="flex items-center">
+          <img src="/logo.svg" alt="alihaider.dev" className="h-7 w-auto" />
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">

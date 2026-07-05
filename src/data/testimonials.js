@@ -9,7 +9,7 @@ export const videoTestimonials = [
     role: "Founder, Luxe Interiors Studio",
     videoUrl: "",
     thumbnail: null, // optional: "/videos/thumbs/sarah.jpg"
-    gradient: ["#c9f24b", "#1a2e05"],
+    gradient: ["#f4a203", "#3a2800"],
     quote: "Ali didn't just build us a website — he built us a sales machine.",
     duration: "1:24",
   },

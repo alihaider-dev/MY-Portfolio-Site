@@ -11,7 +11,7 @@ export const projects = [
     year: "2026",
     url: "https://example.com",
     image: null,
-    gradient: ["#c9f24b", "#3f6212"],
+    gradient: ["#f4a203", "#6b4a00"],
     initials: "LI",
     result: "+214% more leads in 60 days",
     desc: "Full custom build for a high-end interior design studio — portfolio galleries, booking flow, and a lead funnel that actually converts.",

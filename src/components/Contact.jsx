@@ -49,9 +49,9 @@ export default function Contact() {
 
       <div className="border-t border-line">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-6 lg:px-10">
-          <p className="font-display font-semibold">
-            Ali<span className="text-accent">.</span>Haider
-          </p>
+          <a href="#top" className="flex items-center">
+            <img src="/logo.svg" alt="alihaider.dev" className="h-6 w-auto" />
+          </a>
           <ul className="flex flex-wrap gap-6 text-sm text-muted">
             {site.socials.map((s) => (
               <li key={s.label}>
