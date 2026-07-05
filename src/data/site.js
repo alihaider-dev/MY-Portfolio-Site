@@ -10,9 +10,9 @@ export const site = {
   discordUrl: "https://discord.gg/your-invite", // ← replace with your real Discord invite
   socials: [
     { label: "Discord", url: "https://discord.gg/your-invite" },
-    { label: "LinkedIn", url: "https://linkedin.com/in/your-profile" },
-    { label: "YouTube", url: "https://youtube.com/@your-channel" },
-    { label: "Fiverr", url: "https://fiverr.com/your-profile" },
+    // { label: "LinkedIn", url: "https://linkedin.com/in/your-profile" },
+    { label: "YouTube", url: "https://www.youtube.com/@AlisDevHub" },
+    { label: "Fiverr", url: "https://www.fiverr.com/elementorhero" },
   ],
 }
 
