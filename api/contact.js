@@ -65,7 +65,13 @@ export default async function handler(req, res) {
       "https://api.web3forms.com/submit",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Origin: "https://alihaider.dev",
+          Referer: "https://alihaider.dev/",
+          "User-Agent": req.headers["user-agent"] || "Mozilla/5.0 (alihaider.dev contact form)",
+        },
         body: JSON.stringify({
           access_key: process.env.WEB3FORMS_ACCESS_KEY || "15fc4646-3e1e-44aa-ac6d-84d650e9e64e",
           subject: `New project inquiry from ${name}`,
