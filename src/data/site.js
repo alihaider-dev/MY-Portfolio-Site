@@ -9,8 +9,8 @@ export const site = {
     "I help businesses turn their websites into their best salesperson — stunning design, blazing speed, and layouts engineered to convert visitors into customers.",
   discordUrl: "https://discord.gg/your-invite", // ← replace with your real Discord invite
   introVideo: {
-    url: "https://www.youtube.com/watch?v=vyDMjy3_kY0",
-    thumbnail: "https://i.ytimg.com/vi/vyDMjy3_kY0/hqdefault.jpg",
+    url: "/videos/intro-video.mp4",
+    thumbnail: "/videos/thumbs/intro-thumbnail.png",
     label: "Meet Ali",
     sublabel: "Watch my intro",
   },
