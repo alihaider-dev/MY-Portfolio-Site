@@ -14,6 +14,10 @@ export const site = {
     label: "Meet Ali",
     sublabel: "Watch my intro",
   },
+  fiverrUrl: "https://www.fiverr.com/elementorhero",
+  // Get your free access key at https://web3forms.com (enter your email,
+  // the key arrives instantly) and paste it here to activate the contact form:
+  web3formsKey: "YOUR_WEB3FORMS_ACCESS_KEY",
   socials: [
     { label: "Discord", url: "https://discord.gg/your-invite" },
     // { label: "LinkedIn", url: "https://linkedin.com/in/your-profile" },
@@ -21,6 +25,48 @@ export const site = {
     { label: "Fiverr", url: "https://www.fiverr.com/elementorhero" },
   ],
 }
+
+export const about = {
+  photo: "/videos/thumbs/intro-thumbnail.png",
+  heading: "The developer behind the results",
+  // ← Edit this story freely — it converts best when it sounds like you.
+  paragraphs: [
+    "I'm Ali Haider — a WordPress expert who has spent years turning websites from pretty brochures into salespeople that work around the clock. Over 100 projects and 50+ happy clients later, one thing hasn't changed: I only win when your website wins.",
+    "I work with business owners who don't care about tech jargon — they care about more leads, more bookings, and more sales. That's the language I build in. Every layout decision, every speed optimization, every line of copy placement is aimed at one thing: turning your visitors into customers.",
+  ],
+  bullets: [
+    "5.0★ rated across every client project",
+    "Fast, clear communication — no ghosting, ever",
+    "You own everything: site, files, and accounts",
+  ],
+}
+
+export const faq = [
+  {
+    q: "How much does a website cost?",
+    a: "It depends on what your business needs — a lead-generation site and a full online store are very different projects. After a free discovery chat, you get a fixed quote with no hidden costs, so you know the exact investment before we start. No surprises, ever.",
+  },
+  {
+    q: "How long will my website take?",
+    a: "Most projects launch within 1–3 weeks depending on scope. You'll get a clear timeline before we start, and I keep you updated at every milestone — you'll never wonder what's happening with your project.",
+  },
+  {
+    q: "Will I own my website?",
+    a: "100%. The domain, hosting, files, and all accounts belong to you from day one. You're never locked in to me — though most clients stay because they want to, not because they have to.",
+  },
+  {
+    q: "Can I update the site myself after launch?",
+    a: "Yes — that's one of the reasons I build on WordPress. You get a walkthrough at launch showing you how to edit text, images, and products yourself. No developer needed for everyday changes.",
+  },
+  {
+    q: "What do you need from me to get started?",
+    a: "Just your business goals and any content you already have (logo, photos, text). Don't have content ready? No problem — I'll guide you through exactly what's needed, step by step.",
+  },
+  {
+    q: "What happens after my site goes live?",
+    a: "I don't disappear. Every project includes post-launch support, and if you want ongoing peace of mind, my maintenance plans cover updates, backups, security, and priority help whenever you need it.",
+  },
+]
 
 export const stats = [
   { value: 100, suffix: "+", label: "Projects Completed" },

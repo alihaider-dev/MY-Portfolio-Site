@@ -1,7 +1,124 @@
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { site } from "../data/site"
 import Reveal from "./Reveal"
-import MagneticButton from "./MagneticButton"
+
+function ContactForm() {
+  const [status, setStatus] = useState("idle") // idle | sending | success | error
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    const form = e.target
+    if (form.botcheck.value) return // honeypot
+    if (site.web3formsKey.startsWith("YOUR_")) {
+      setStatus("error")
+      return
+    }
+    setStatus("sending")
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: site.web3formsKey,
+          subject: `New project inquiry from ${form.name.value}`,
+          name: form.name.value,
+          email: form.email.value,
+          message: form.message.value,
+        }),
+      })
+      const data = await res.json()
+      setStatus(data.success ? "success" : "error")
+      if (data.success) form.reset()
+    } catch {
+      setStatus("error")
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="rounded-2xl border border-accent/40 bg-accent/10 p-10 text-center"
+      >
+        <span className="text-4xl">🎉</span>
+        <h3 className="mt-4 font-display text-2xl font-bold">Message sent!</h3>
+        <p className="mt-2 text-muted">
+          Thanks for reaching out — I'll get back to you within 24 hours.
+        </p>
+      </motion.div>
+    )
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="text-left">
+      <input type="text" name="botcheck" tabIndex="-1" autoComplete="off" className="hidden" aria-hidden="true" />
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="cf-name" className="mb-2 block font-display text-sm font-medium text-cream/90">
+            Your name
+          </label>
+          <input
+            id="cf-name"
+            name="name"
+            type="text"
+            required
+            placeholder="John Smith"
+            className="w-full rounded-xl border border-line bg-surface px-5 py-4 text-cream placeholder:text-muted/60 outline-none transition-colors duration-300 focus:border-accent"
+          />
+        </div>
+        <div>
+          <label htmlFor="cf-email" className="mb-2 block font-display text-sm font-medium text-cream/90">
+            Email
+          </label>
+          <input
+            id="cf-email"
+            name="email"
+            type="email"
+            required
+            placeholder="john@company.com"
+            className="w-full rounded-xl border border-line bg-surface px-5 py-4 text-cream placeholder:text-muted/60 outline-none transition-colors duration-300 focus:border-accent"
+          />
+        </div>
+      </div>
+      <div className="mt-4">
+        <label htmlFor="cf-message" className="mb-2 block font-display text-sm font-medium text-cream/90">
+          Tell me about your project
+        </label>
+        <textarea
+          id="cf-message"
+          name="message"
+          required
+          rows="5"
+          placeholder="What does your business do, and what should your website achieve?"
+          className="w-full resize-y rounded-xl border border-line bg-surface px-5 py-4 text-cream placeholder:text-muted/60 outline-none transition-colors duration-300 focus:border-accent"
+        />
+      </div>
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="group relative mt-6 inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-accent px-10 py-5 font-display text-lg font-semibold text-ink transition-opacity disabled:opacity-60 sm:w-auto"
+      >
+        <span className="absolute inset-0 -translate-x-full bg-cream transition-transform duration-500 ease-out group-hover:translate-x-0" />
+        <span className="relative">{status === "sending" ? "Sending…" : "Send My Project Details"}</span>
+        <span className="relative transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+      </button>
+      {status === "error" && (
+        <p className="mt-4 text-sm text-red-400">
+          Something went wrong sending your message — please email me directly at{" "}
+          <a href={`mailto:${site.email}`} className="underline decoration-accent underline-offset-4">
+            {site.email}
+          </a>
+          .
+        </p>
+      )}
+      <p className="mt-4 text-sm text-muted">
+        I reply to every inquiry within 24 hours — usually much faster.
+      </p>
+    </form>
+  )
+}
 
 export default function Contact() {
   const year = new Date().getFullYear()
@@ -26,20 +143,11 @@ export default function Contact() {
           </p>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <MagneticButton>
-              <a
-                href={`mailto:${site.email}?subject=Project%20Inquiry`}
-                className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-accent px-10 py-5 font-display text-lg font-semibold text-ink"
-              >
-                <span className="absolute inset-0 -translate-x-full bg-cream transition-transform duration-500 ease-out group-hover:translate-x-0" />
-                <span className="relative">Start Your Project</span>
-                <span className="relative transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-              </a>
-            </MagneticButton>
+          <div className="mx-auto mt-12 max-w-2xl">
+            <ContactForm />
           </div>
-          <p className="mt-6 text-sm text-muted">
-            or email me directly —{" "}
+          <p className="mt-8 text-sm text-muted">
+            prefer email? —{" "}
             <a href={`mailto:${site.email}`} className="text-cream underline decoration-accent underline-offset-4 hover:text-accent">
               {site.email}
             </a>

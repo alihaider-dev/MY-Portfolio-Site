@@ -77,6 +77,8 @@ function WrittenCard({ t }) {
 export default function Testimonials() {
   const [playing, setPlaying] = useState(null)
   const rowA = [...writtenTestimonials, ...writtenTestimonials]
+  // Only show video cards that actually have a video yet
+  const videos = videoTestimonials.filter((t) => t.videoUrl)
 
   return (
     <section id="results" className="relative overflow-hidden py-28 lg:py-36">
@@ -99,11 +101,13 @@ export default function Testimonials() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {videoTestimonials.map((t, i) => (
-            <VideoCard key={t.name} t={t} index={i} onPlay={setPlaying} />
-          ))}
-        </div>
+        {videos.length > 0 && (
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {videos.map((t, i) => (
+              <VideoCard key={t.name} t={t} index={i} onPlay={setPlaying} />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* written feedback marquee */}

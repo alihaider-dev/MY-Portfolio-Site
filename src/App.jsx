@@ -5,8 +5,10 @@ import Hero from "./components/Hero"
 import Marquee from "./components/Marquee"
 import Work from "./components/Work"
 import Testimonials from "./components/Testimonials"
+import About from "./components/About"
 import Process from "./components/Process"
 import Services from "./components/Services"
+import FAQ from "./components/FAQ"
 import Community from "./components/Community"
 import Contact from "./components/Contact"
 
@@ -63,8 +65,10 @@ export default function App() {
         <Marquee />
         <Work />
         <Testimonials />
+        <About />
         <Process />
         <Services />
+        <FAQ />
         <Community />
       </main>
       <Contact />

@@ -37,9 +37,14 @@ export default function Hero() {
         className="relative mx-auto w-full max-w-7xl px-6 lg:px-10"
       >
         <motion.div variants={item} className="mb-8 flex flex-wrap items-center gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-1.5 text-sm text-muted">
-            <span className="text-accent">★★★★★</span> 5.0 rated on every project
-          </span>
+          <a
+            href={site.fiverrUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-1.5 text-sm text-muted transition-colors duration-300 hover:border-accent hover:text-cream"
+          >
+            <span className="text-accent">★★★★★</span> 5.0 on Fiverr — verified reviews
+          </a>
           <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-1.5 text-sm text-muted">
             <span className="relative flex h-2 w-2">
               <span className="absolute h-full w-full animate-ping rounded-full bg-accent opacity-60" />
