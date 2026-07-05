@@ -15,8 +15,10 @@ export const site = {
     sublabel: "Watch my intro",
   },
   fiverrUrl: "https://www.fiverr.com/elementorhero",
-  // Web3Forms public access key — submissions are emailed to alisdevhub@gmail.com
-  web3formsKey: "15fc4646-3e1e-44aa-ac6d-84d650e9e64e",
+  // Cloudflare Turnstile site key (public). The secret key lives in Vercel's
+  // TURNSTILE_SECRET_KEY env var; submissions are verified in /api/contact.js
+  // and then emailed to alisdevhub@gmail.com via Web3Forms.
+  turnstileSiteKey: "0x4AAAAAAAHxAszu3x96ulyC",
   socials: [
     { label: "Discord", url: "https://discord.gg/your-invite" },
     // { label: "LinkedIn", url: "https://linkedin.com/in/your-profile" },

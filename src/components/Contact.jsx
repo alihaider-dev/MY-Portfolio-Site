@@ -1,37 +1,72 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { site } from "../data/site"
 import Reveal from "./Reveal"
 
 function ContactForm() {
-  const [status, setStatus] = useState("idle") // idle | sending | success | error
+  const [status, setStatus] = useState("idle") // idle | sending | success | error | captcha
+  const captchaRef = useRef(null)
+  const widgetIdRef = useRef(null)
+
+  // Load the Turnstile script once and render the widget explicitly (plays
+  // nicely with React re-mounts).
+  useEffect(() => {
+    const render = () => {
+      if (widgetIdRef.current !== null || !captchaRef.current) return
+      widgetIdRef.current = window.turnstile.render(captchaRef.current, {
+        sitekey: site.turnstileSiteKey,
+        theme: "dark",
+      })
+    }
+    if (window.turnstile) {
+      render()
+    } else {
+      window.__onTurnstileLoad = render
+      if (!document.getElementById("cf-turnstile-script")) {
+        const s = document.createElement("script")
+        s.id = "cf-turnstile-script"
+        s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=__onTurnstileLoad&render=explicit"
+        s.async = true
+        s.defer = true
+        document.head.appendChild(s)
+      }
+    }
+    return () => {
+      if (widgetIdRef.current !== null && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current)
+        widgetIdRef.current = null
+      }
+    }
+  }, [])
 
   const onSubmit = async (e) => {
     e.preventDefault()
     const form = e.target
     if (form.botcheck.value) return // honeypot
-    if (site.web3formsKey.startsWith("YOUR_")) {
-      setStatus("error")
+    const turnstileToken = window.turnstile?.getResponse(widgetIdRef.current)
+    if (!turnstileToken) {
+      setStatus("captcha")
       return
     }
     setStatus("sending")
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: site.web3formsKey,
-          subject: `New project inquiry from ${form.name.value}`,
           name: form.name.value,
           email: form.email.value,
           message: form.message.value,
+          turnstileToken,
         }),
       })
       const data = await res.json()
       setStatus(data.success ? "success" : "error")
       if (data.success) form.reset()
+      else window.turnstile?.reset(widgetIdRef.current)
     } catch {
       setStatus("error")
+      window.turnstile?.reset(widgetIdRef.current)
     }
   }
 
@@ -95,10 +130,11 @@ function ContactForm() {
           className="w-full resize-y rounded-xl border border-line bg-surface px-5 py-4 text-cream placeholder:text-muted/60 outline-none transition-colors duration-300 focus:border-accent"
         />
       </div>
+      <div className="mt-5" ref={captchaRef} />
       <button
         type="submit"
         disabled={status === "sending"}
-        className="group relative mt-6 inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-accent px-10 py-5 font-display text-lg font-semibold text-ink transition-opacity disabled:opacity-60 sm:w-auto"
+        className="group relative mt-5 inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-accent px-10 py-5 font-display text-lg font-semibold text-ink transition-opacity disabled:opacity-60 sm:w-auto"
       >
         <span className="absolute inset-0 -translate-x-full bg-cream transition-transform duration-500 ease-out group-hover:translate-x-0" />
         <span className="relative">{status === "sending" ? "Sending…" : "Send My Project Details"}</span>
@@ -107,6 +143,11 @@ function ContactForm() {
       {status === "error" && (
         <p className="mt-4 text-sm text-red-400">
           Something went wrong sending your message — please try again in a moment.
+        </p>
+      )}
+      {status === "captcha" && (
+        <p className="mt-4 text-sm text-red-400">
+          Please wait for the security check to complete, then try again.
         </p>
       )}
       <p className="mt-4 text-sm text-muted">
