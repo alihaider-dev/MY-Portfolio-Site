@@ -33,41 +33,42 @@ export const videoTestimonials = [
   },
 ]
 
+// Real reviews pulled verbatim from fiverr.com/elementorhero (5.0★, 16 reviews)
 export const writtenTestimonials = [
   {
-    name: "David Okafor",
-    role: "Nova Legal Partners",
+    name: "pronation",
+    role: "Fiverr · United States · Repeat Client",
     rating: 5,
-    text: "Our site went from 8 seconds to 1 second load time. Organic traffic is up 68% and we're getting case inquiries every single day now.",
+    text: "Ali is Amazing to work with. Extremely fast and knowledgeable. He has high level of competence with high standards for all projects. Ali is great to work and his communication great. I highly recommend his service.",
   },
   {
-    name: "Jessica Tran",
-    role: "Harvest & Co.",
+    name: "victoratpremier",
+    role: "Fiverr · United States",
     rating: 5,
-    text: "Reservations tripled within weeks. Ali understood exactly what our customers needed and delivered beyond expectations.",
+    text: "He was amazing to work with. He delivered everything extremely fast and responded quickly to all of our additional requests. The quality of his work exceeded our expectations, and he is now officially on our list of preferred WordPress editors. Highly recommended.",
   },
   {
-    name: "Tom Reeves",
-    role: "Summit Consulting",
+    name: "evertonh",
+    role: "Fiverr · United Kingdom",
     rating: 5,
-    text: "400 pages migrated with literally zero downtime. The most professional developer I've worked with in 15 years of business.",
+    text: "This has been an absolute game-changer for my business. I hired them to take over the management of my WordPress blog, which involved everything from content formatting and uploading to on-page SEO optimization, and I am incredibly impressed with the results.",
   },
   {
-    name: "Priya Sharma",
-    role: "Verve Fitness",
+    name: "lloydgroom",
+    role: "Fiverr · United Kingdom",
     rating: 5,
-    text: "Fast, communicative, and the design is stunning. He treated our small business like it was a million-dollar account.",
+    text: "Ali was super helpful and really understood our project. Super easy to work with and even jumped online to add further value with an extra training video to support us. We will defo use again in future.",
   },
   {
-    name: "Liam Bennett",
-    role: "Bennett Roofing",
+    name: "amirgtr",
+    role: "Fiverr · United States",
     rating: 5,
-    text: "I've hired four developers before Ali. He's the only one who delivered on time, on budget, and better than the mockups.",
+    text: "Once again, Ali did a fantastic job! He successfully cleaned malware, improved the security, and set up Google Drive backups for all my WordPress sites. Highly recommended for anyone looking for a reliable and knowledgeable WordPress expert.",
   },
   {
-    name: "Chloe Winters",
-    role: "Winters Boutique",
+    name: "abyusuf",
+    role: "Fiverr · Bangladesh",
     rating: 5,
-    text: "Our WooCommerce store finally works on mobile. Sales are up 87% and cart abandonment dropped through the floor.",
+    text: "He created a clean, professional design and added a functional popup form on the “Buy Now” button exactly as requested. Communication was smooth, and the delivery was right on time. Highly recommend his service to anyone looking for quality WordPress work!",
   },
 ]
