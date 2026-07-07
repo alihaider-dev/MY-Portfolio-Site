@@ -11,7 +11,7 @@ export const videoTestimonials = [
     name: "Mohammad Salah",
     role: "Business Director, WiConnect",
     videoUrl: "https://youtu.be/OxJKhU4ML1E",
-    thumbnail: "/videos/thumbs/WiConnect-Thumbnail.png",
+    thumbnail: "/videos/thumbs/WiConnect-Thumbnail.webp",
     gradient: ["#f4a203", "#3a2800"],
     quote: "", // ← paste Mohammad's exact words from the video here for a real pull-quote
     caption: "Hear it from the client — WiConnect's WordPress redesign.",

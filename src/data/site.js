@@ -10,7 +10,7 @@ export const site = {
   discordUrl: "https://discord.gg/4PYsWBWfCg", // ← replace with your real Discord invite
   introVideo: {
     url: "/videos/intro-video.mp4",
-    thumbnail: "/videos/thumbs/intro-thumbnail.png",
+    thumbnail: "/videos/thumbs/intro-thumbnail.webp",
     label: "Meet Ali",
     sublabel: "Watch my intro",
   },
@@ -30,7 +30,7 @@ export const site = {
 }
 
 export const about = {
-  photo: "/videos/thumbs/intro-thumbnail.png",
+  photo: "/videos/thumbs/intro-thumbnail.webp",
   heading: "The developer behind the results",
   // ← Edit this story freely — it converts best when it sounds like you.
   paragraphs: [

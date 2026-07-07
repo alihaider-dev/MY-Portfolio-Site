@@ -17,7 +17,7 @@ export default function About() {
         >
           <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-accent/40 to-violet/30 blur-xl" />
           <div className="relative overflow-hidden rounded-3xl border border-line">
-            <img src={about.photo} alt={site.name} className="w-full object-cover" />
+            <img src={about.photo} alt={site.name} width={460} height={460} loading="lazy" decoding="async" className="w-full object-cover" />
             <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-ink/80 px-5 py-4 backdrop-blur">
               <div>
                 <p className="font-display font-semibold">{site.name}</p>

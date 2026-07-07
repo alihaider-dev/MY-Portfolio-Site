@@ -27,6 +27,10 @@ function VideoCard({ t, index, onPlay }) {
           <img
             src={t.thumbnail}
             alt={t.name}
+            width={800}
+            height={697}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         )}

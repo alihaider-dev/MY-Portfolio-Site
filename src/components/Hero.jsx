@@ -98,6 +98,9 @@ export default function Hero() {
                 <img
                   src={site.introVideo.thumbnail}
                   alt={site.introVideo.label}
+                  width={460}
+                  height={460}
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <span className="absolute inset-0 flex items-center justify-center bg-ink/40 text-sm text-cream transition-colors duration-300 group-hover:bg-ink/10">

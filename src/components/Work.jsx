@@ -8,6 +8,10 @@ function Cover({ project }) {
       <img
         src={project.image}
         alt={project.title}
+        width={1280}
+        height={960}
+        loading="lazy"
+        decoding="async"
         className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
       />
     )
