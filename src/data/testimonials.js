@@ -3,6 +3,9 @@
 //   • a YouTube link  → "https://www.youtube.com/watch?v=XXXX" (or youtu.be/XXXX)
 //   • a local file    → put it in /public/videos/ and use "/videos/client1.mp4"
 // While videoUrl is empty ("") the card still renders so you can see the design.
+// NOTE ON QUOTES: only put text in `quote` if the client actually said/wrote
+// it word-for-word. If you don't have a verbatim quote, leave `quote: ""` and
+// use `caption` for an honest, non-quote line — the card won't fake a quote.
 export const videoTestimonials = [
   {
     name: "Mohammad Salah",
@@ -10,8 +13,9 @@ export const videoTestimonials = [
     videoUrl: "https://youtu.be/OxJKhU4ML1E",
     thumbnail: "/videos/thumbs/WiConnect-Thumbnail.png",
     gradient: ["#f4a203", "#3a2800"],
-    quote: "Ali didn't just build us a website — he built us a sales machine.",
-    duration: "0:55",
+    quote: "", // ← paste Mohammad's exact words from the video here for a real pull-quote
+    caption: "Hear it from the client — WiConnect's WordPress redesign.",
+    duration: "3:49",
   },
   {
     name: "Namrial Hurd",
@@ -19,7 +23,8 @@ export const videoTestimonials = [
     videoUrl: "",
     thumbnail: null,
     gradient: ["#a78bfa", "#2e1065"],
-    quote: "The best investment we've made in our business, period.",
+    quote: "",
+    caption: "Client feedback — watch the full story.",
     duration: "0:58",
   },
   {
@@ -28,7 +33,8 @@ export const videoTestimonials = [
     videoUrl: "",
     thumbnail: null,
     gradient: ["#f472b6", "#500724"],
-    quote: "We did $40k in sales the first month after launch. Unreal.",
+    quote: "",
+    caption: "Client feedback — watch the full story.",
     duration: "1:47",
   },
 ]

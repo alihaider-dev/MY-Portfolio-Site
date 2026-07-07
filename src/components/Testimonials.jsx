@@ -47,7 +47,13 @@ function VideoCard({ t, index, onPlay }) {
         </span>
 
         <div className="absolute inset-x-0 bottom-0 p-6">
-          <p className="font-display text-lg font-semibold leading-snug">“{t.quote}”</p>
+          {/* Only render a quotation when it's a real, verbatim client quote.
+              Otherwise show an honest caption that doesn't put words in their mouth. */}
+          {t.quote ? (
+            <p className="font-display text-lg font-semibold leading-snug">“{t.quote}”</p>
+          ) : (
+            <p className="font-display text-lg font-semibold leading-snug">{t.caption}</p>
+          )}
           <p className="mt-3 text-sm text-accent">{t.name}</p>
           <p className="text-xs text-muted">{t.role}</p>
         </div>

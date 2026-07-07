@@ -7,7 +7,7 @@ export const site = {
   headlineAccent: "That Convert",
   subheadline:
     "I help businesses turn their websites into their best salesperson — stunning design, blazing speed, and layouts engineered to convert visitors into customers.",
-  discordUrl: "https://discord.gg/your-invite", // ← replace with your real Discord invite
+  discordUrl: "https://discord.gg/4PYsWBWfCg", // ← replace with your real Discord invite
   introVideo: {
     url: "/videos/intro-video.mp4",
     thumbnail: "/videos/thumbs/intro-thumbnail.png",
@@ -22,7 +22,7 @@ export const site = {
   turnstileSiteKey: "0x4AAAAAAAHxAszu3x96ulyC",
   web3formsKey: "15fc4646-3e1e-44aa-ac6d-84d650e9e64e",
   socials: [
-    { label: "Discord", url: "https://discord.gg/your-invite" },
+    { label: "Discord", url: "https://discord.gg/4PYsWBWfCg" },
     // { label: "LinkedIn", url: "https://linkedin.com/in/your-profile" },
     { label: "YouTube", url: "https://www.youtube.com/@AlisDevHub" },
     { label: "Fiverr", url: "https://www.fiverr.com/elementorhero" },
