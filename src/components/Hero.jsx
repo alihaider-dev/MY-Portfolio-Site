@@ -42,10 +42,9 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1
-          className="hero-slide font-display text-[clamp(2.75rem,8vw,7rem)] font-bold leading-[0.95] tracking-tight"
-          style={{ animationDelay: "0.12s" }}
-        >
+        {/* Static (no entrance animation): this is the LCP element, so it must
+            paint immediately rather than wait on an animation. */}
+        <h1 className="font-display text-[clamp(2.75rem,8vw,7rem)] font-bold leading-[0.95] tracking-tight">
           I Build {site.headlineTop}
           <br />
           <span className="text-stroke-accent">{site.headlineAccent}</span>
