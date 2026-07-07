@@ -112,6 +112,24 @@ body {
   background-size: 72px 72px;
 }
 
+/* Hero entrance — CSS-driven so it runs at first paint (from render-blocking
+   CSS) instead of waiting for the JS bundle. Keeps LCP fast: the headline uses
+   a transform-only reveal (never opacity-gated), so it's painted immediately. */
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroSlide {
+  from { transform: translateY(28px); }
+  to { transform: translateY(0); }
+}
+.hero-rise {
+  animation: heroRise 0.8s cubic-bezier(0.21, 0.65, 0.36, 1) both;
+}
+.hero-slide {
+  animation: heroSlide 0.8s cubic-bezier(0.21, 0.65, 0.36, 1) both;
+}
+
 /* Hide native cursor when custom cursor is active (desktop only) */
 @media (pointer: fine) {
   .custom-cursor-active,
@@ -125,7 +143,9 @@ body {
   .grain::after,
   .animate-marquee,
   .animate-marquee-slow,
-  .animate-marquee-reverse {
+  .animate-marquee-reverse,
+  .hero-rise,
+  .hero-slide {
     animation: none;
   }
 }

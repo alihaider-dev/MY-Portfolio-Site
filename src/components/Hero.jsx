@@ -5,15 +5,6 @@ import Counter from "./Counter"
 import MagneticButton from "./MagneticButton"
 import VideoModal from "./VideoModal"
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
-}
-const item = {
-  hidden: { opacity: 0, y: 50 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.21, 0.65, 0.36, 1] } },
-}
-
 export default function Hero() {
   const { scrollY } = useScroll()
   const glowY = useTransform(scrollY, [0, 600], [0, 180])
@@ -30,13 +21,10 @@ export default function Hero() {
       <div className="pointer-events-none absolute bottom-0 right-[-10%] h-96 w-96 rounded-full bg-violet/10 blur-[120px]" />
 
       <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
         style={{ opacity: fade }}
         className="relative mx-auto w-full max-w-7xl px-6 lg:px-10"
       >
-        <motion.div variants={item} className="mb-8 flex flex-wrap items-center gap-3">
+        <div className="hero-rise mb-8 flex flex-wrap items-center gap-3" style={{ animationDelay: "0.05s" }}>
           <a
             href={site.fiverrUrl}
             target="_blank"
@@ -52,23 +40,23 @@ export default function Hero() {
             </span>
             Available for new projects
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          variants={item}
-          className="font-display text-[clamp(2.75rem,8vw,7rem)] font-bold leading-[0.95] tracking-tight"
+        <h1
+          className="hero-slide font-display text-[clamp(2.75rem,8vw,7rem)] font-bold leading-[0.95] tracking-tight"
+          style={{ animationDelay: "0.12s" }}
         >
           I Build {site.headlineTop}
           <br />
           <span className="text-stroke-accent">{site.headlineAccent}</span>
           <span className="text-accent">.</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p variants={item} className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
+        <p className="hero-rise mt-8 max-w-xl text-lg leading-relaxed text-muted" style={{ animationDelay: "0.26s" }}>
           {site.subheadline}
-        </motion.p>
+        </p>
 
-        <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4">
+        <div className="hero-rise mt-10 flex flex-wrap items-center gap-4" style={{ animationDelay: "0.36s" }}>
           <MagneticButton>
             <a
               href="#contact"
@@ -115,11 +103,11 @@ export default function Hero() {
               </span>
             </button>
           )}
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={item}
-          className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4"
+        <div
+          className="hero-rise mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4"
+          style={{ animationDelay: "0.46s" }}
         >
           {stats.map((s) => (
             <div key={s.label} className="group bg-ink p-6 transition-colors duration-300 hover:bg-surface lg:p-8">
@@ -132,7 +120,7 @@ export default function Hero() {
               <p className="mt-2 text-sm text-muted">{s.label}</p>
             </div>
           ))}
-        </motion.div>
+        </div>
       </motion.div>
 
       <motion.a
