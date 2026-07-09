@@ -11,8 +11,8 @@ Decisions already made: existing hosting · Tutor LMS **Free** · brand-matched 
 ## Phase 0 — Subdomain + DNS (Cloudflare)
 
 1. In your hosting panel, create the subdomain `courses.alihaider.dev` (new docroot or separate WP instance — keep it isolated from anything else on the account).
-2. In Cloudflare DNS, add the record your host gives you: usually `A courses → <server IP>` (or `CNAME courses → <host target>`).
-3. Set it **DNS only (grey cloud)** first so your host can issue the SSL cert (Let's Encrypt validation fails behind the proxy on some hosts). Once HTTPS works, flip to **Proxied (orange cloud)** if you want Cloudflare caching/protection.
+2. In Cloudflare DNS, add the record your host gives you: usually `A courses → <server IP>` (or `CNAME courses → <host target>`). Done 2026-07-09: `A courses → 198.187.29.22` (Namecheap server124.web-hosting.com).
+3. Set it **DNS only (grey cloud)** first so your host can issue the SSL cert (validation fails behind the proxy). **Add the DNS record BEFORE creating the domain in cPanel if possible** — Namecheap auto-issues PositiveSSL at domain creation, and if DNS doesn't resolve yet that first attempt fails and you wait for the retry cycle (up to ~1 hour). Once HTTPS works, optionally flip to **Proxied (orange cloud)**.
 4. Cloudflare SSL/TLS mode: **Full (strict)** — you already have this for the apex; the subdomain inherits it.
 
 ## Phase 1 — Clean WordPress install
@@ -39,10 +39,10 @@ Global palette (Customizer → Colors) — map to the portfolio tokens:
 | Headings | `#f7f6f2` | cream |
 | Body text | `#928fa4` → use `#b9b6c9` for long-form lesson text (better contrast for reading) | muted |
 
-**Fonts** (same files the portfolio uses — no Google Fonts request):
-1. Copy the 7 `.woff2` files from this repo's `public/fonts/` to the LMS server at `wp-content/uploads/fonts/`.
-2. `brand.css` contains the matching `@font-face` rules — paste all of `brand.css` into Customizer → Additional CSS.
-3. Set typography in the theme: headings = Space Grotesk, body = Inter (Kadence lets you type a custom family name).
+**Fonts** — use Kadence's built-in **"Load Google Fonts Locally"** (Customizer → General → Performance):
+1. Enable local font loading — Kadence downloads the woff2 files to the server and serves them first-party (same privacy/performance as the portfolio's self-hosted fonts, no manual upload).
+2. Set typography: headings = Space Grotesk, body = Inter.
+3. Then paste `brand.css` into Customizer → Additional CSS — skip its `@font-face` block (Kadence handles font loading; the block is only needed if you self-host manually at `wp-content/uploads/fonts/`).
 
 **Header/footer:** logo (reuse `public/logo.svg`), nav: Courses · About · alihaider.dev ← (link back to the main site, this cross-link matters for SEO). Footer: same socials as the portfolio + link to alihaider.dev.
 
