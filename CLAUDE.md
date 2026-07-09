@@ -33,6 +33,11 @@ All copy/data lives in editable data files:
   copy. Each course has a `live` flag — `false` shows "Join the Waitlist"; flip to
   `true` (and set `url`) once the course exists on courses.alihaider.dev to show
   "Enroll Free →".
+- `src/data/servicePages.js` — SEO service landing pages (one per service, prerendered
+  at `/services/<slug>/` + a `/services/` hub). Each entry carries its own meta
+  title/description, H1, FAQs (→ FAQPage schema) and `priceFrom` (null = "fixed
+  quote"). Routing is path-based via `src/routes.jsx` (no router lib); `prerender.mjs`
+  writes one static HTML per route + `sitemap.xml`.
 Components live in `src/components/`. Match the existing Tailwind + Framer Motion style.
 
 ## Contact form — DO NOT "simplify" it

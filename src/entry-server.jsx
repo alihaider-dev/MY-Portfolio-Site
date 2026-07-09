@@ -1,13 +1,10 @@
 import { StrictMode } from "react"
 import { renderToString } from "react-dom/server"
-import App from "./App.jsx"
+import { pageForPath } from "./routes.jsx"
 
-// Renders the full app to an HTML string at build time so the content is
-// baked into index.html for search engines and social/link crawlers.
-export function render() {
-  return renderToString(
-    <StrictMode>
-      <App />
-    </StrictMode>,
-  )
+// Renders the page for a given URL path to an HTML string at build time so
+// the content is baked into each route's index.html for search engines and
+// social/link crawlers. Defaults to the homepage for backwards compatibility.
+export function render(path = "/") {
+  return renderToString(<StrictMode>{pageForPath(path)}</StrictMode>)
 }

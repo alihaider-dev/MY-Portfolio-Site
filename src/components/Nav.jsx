@@ -7,11 +7,15 @@ const links = [
   { label: "Work", href: "#work" },
   { label: "Results", href: "#results" },
   { label: "About", href: "#about" },
+  { label: "Services", href: "/services/", page: true },
   { label: "Courses", href: "#courses" },
   { label: "FAQ", href: "#faq" },
 ]
 
-export default function Nav() {
+// `sub` = rendered on a sub-page (e.g. /services/*): homepage anchors become
+// absolute ("/#work") so they lead back home; real page links stay as-is.
+export default function Nav({ sub = false }) {
+  const href = (l) => (l.page || !sub ? l.href : `/${l.href}`)
   const { scrollY } = useScroll()
   const [hidden, setHidden] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -33,7 +37,7 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#top" className="flex items-center">
+        <a href={sub ? "/" : "#top"} className="flex items-center">
           <img src="/logo.svg" alt="alihaider.dev" className="h-7 w-auto" />
         </a>
 
@@ -41,7 +45,7 @@ export default function Nav() {
           {links.map((l) => (
             <li key={l.href}>
               <a
-                href={l.href}
+                href={href(l)}
                 className="group relative font-display text-sm font-medium text-muted transition-colors hover:text-cream"
               >
                 {l.label}
@@ -85,7 +89,7 @@ export default function Nav() {
               {links.map((l) => (
                 <li key={l.href}>
                   <a
-                    href={l.href}
+                    href={href(l)}
                     onClick={() => setOpen(false)}
                     className="block py-3 font-display text-2xl font-semibold text-cream"
                   >
