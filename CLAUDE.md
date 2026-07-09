@@ -67,7 +67,8 @@ Ali is adding an online course platform. Decided approach:
   cross-link + Search Console to mitigate SEO).
 - Free courses first (1: responsive site with HTML & CSS; 2: build a WordPress site),
   paid later (Phase 2: WooCommerce + a merchant-of-record for global payments).
-- **Next task on this repo:** build a **"Courses" section** — course cards, curriculum
-  preview, "Free" badge, "Enroll Free →" buttons linking to courses.alihaider.dev,
-  a launch-waitlist email capture (reuse the Web3Forms flow), a "Courses" nav link,
-  and SEO. Build it on editable data files like the rest of the site.
+- ✔ **Done:** the "Courses" section (cards, curriculum preview, "Free" badge, waitlist
+  email capture via Web3Forms, nav link, Course JSON-LD). Data in `src/data/courses.js`;
+  flip each course's `live` flag once it exists on the LMS.
+- **In progress:** the LMS build itself — full guide, brand CSS and course build
+  sheets live in `docs/lms/` (start with `docs/lms/setup-guide.md`).

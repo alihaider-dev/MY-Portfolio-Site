@@ -1,0 +1,142 @@
+/* ── alihaider.dev brand skin for courses.alihaider.dev ──────────────────────
+   Paste into Customizer → Additional CSS (Kadence or similar dark-configured
+   theme). Assumes the 7 woff2 files from the portfolio's public/fonts/ were
+   copied to wp-content/uploads/fonts/.
+   Tokens: ink #100f1a · surface #1b1a2a · line #2c2b3f · accent #f4a203 ·
+   accent-dim #c98600 · cream #f7f6f2 · muted #928fa4                        */
+
+/* Fonts — identical files to alihaider.dev, no third-party requests */
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url('/wp-content/uploads/fonts/space-grotesk-400.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url('/wp-content/uploads/fonts/space-grotesk-500.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url('/wp-content/uploads/fonts/space-grotesk-600.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url('/wp-content/uploads/fonts/space-grotesk-700.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('/wp-content/uploads/fonts/inter-400.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('/wp-content/uploads/fonts/inter-500.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('/wp-content/uploads/fonts/inter-600.woff2') format('woff2');}
+
+:root {
+  --brand-ink: #100f1a;
+  --brand-surface: #1b1a2a;
+  --brand-line: #2c2b3f;
+  --brand-accent: #f4a203;
+  --brand-accent-dim: #c98600;
+  --brand-cream: #f7f6f2;
+  --brand-muted: #928fa4;
+  --brand-body: #b9b6c9; /* lifted from muted for long-form lesson reading */
+
+  /* Tutor LMS design tokens (Tutor 2.x/3.x reads these CSS variables) */
+  --tutor-color-primary: var(--brand-accent);
+  --tutor-color-primary-hover: var(--brand-accent-dim);
+  --tutor-color-secondary: var(--brand-surface);
+  --tutor-body-color: var(--brand-body);
+  --tutor-color-black: var(--brand-cream);      /* headings on dark bg */
+  --tutor-border-color: var(--brand-line);
+  --tutor-color-white: var(--brand-surface);    /* card/panel fills */
+  --tutor-font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background: var(--brand-ink);
+  color: var(--brand-body);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  color: var(--brand-cream);
+  letter-spacing: -0.02em;
+}
+
+a { color: var(--brand-accent); }
+a:hover { color: var(--brand-accent-dim); }
+
+::selection { background: var(--brand-accent); color: var(--brand-ink); }
+
+/* Buttons — pill shape like the portfolio */
+.tutor-btn,
+button.tutor-btn-primary,
+.wp-block-button__link,
+input[type="submit"] {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+.tutor-btn-primary,
+.wp-block-button__link,
+input[type="submit"] {
+  background: var(--brand-accent);
+  color: var(--brand-ink);
+  border-color: var(--brand-accent);
+}
+.tutor-btn-primary:hover,
+.wp-block-button__link:hover,
+input[type="submit"]:hover {
+  background: var(--brand-accent-dim);
+  border-color: var(--brand-accent-dim);
+  color: var(--brand-ink);
+}
+
+/* Course cards on the archive */
+.tutor-course-card,
+.tutor-card {
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-line);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: transform .3s ease, border-color .3s ease;
+}
+.tutor-course-card:hover,
+.tutor-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244, 162, 3, .6);
+}
+.tutor-course-name a,
+.tutor-course-card .tutor-course-name { color: var(--brand-cream); }
+
+/* Free price badge */
+.tutor-course-price,
+.tutor-course-card .tutor-item-price {
+  color: var(--brand-accent);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+/* Curriculum accordion / single-course page */
+.tutor-course-topic,
+.tutor-accordion-item,
+.tutor-course-details-tab {
+  background: var(--brand-surface);
+  border-color: var(--brand-line);
+}
+.tutor-accordion-item-header { color: var(--brand-cream); }
+
+/* Progress bars */
+.tutor-progress-bar { background: var(--brand-line); }
+.tutor-progress-value,
+.tutor-progress-bar .tutor-progress-value { background: var(--brand-accent); }
+
+/* Forms (login / registration) */
+.tutor-form-control,
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  background: var(--brand-surface);
+  border: 1px solid var(--brand-line);
+  border-radius: .75rem;
+  color: var(--brand-cream);
+}
+.tutor-form-control:focus,
+input[type="text"]:focus, input[type="email"]:focus,
+input[type="password"]:focus, textarea:focus {
+  border-color: var(--brand-accent);
+  outline: none;
+  box-shadow: none;
+}
+
+/* Lesson sidebar / spotlight mode */
+.tutor-course-single-sidebar-wrapper,
+.tutor-lesson-sidebar { background: var(--brand-surface); border-color: var(--brand-line); }
+
+/* NOTE: Tutor LMS class names shift between minor versions. If something
+   still renders light, inspect it in DevTools and extend the selectors —
+   keep every fill on surface (#1b1a2a), every border on line (#2c2b3f). */
