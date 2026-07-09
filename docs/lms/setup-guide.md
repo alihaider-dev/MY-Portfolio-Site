@@ -25,9 +25,16 @@ Decisions already made: existing hosting · Tutor LMS **Free** · brand-matched 
 
 ## Phase 2 — Theme + branding
 
-**Theme: Kadence (free).** Lightweight, has a proper header/footer builder and global palette, plays well with Tutor LMS. (Astra/Blocksy work too if you prefer — the palette below is theme-agnostic.)
+**Stack (chosen 2026-07-09): Hello Elementor theme + Elementor + PRO Elements** (GPL plugin
+unlocking Pro features: Theme Builder for custom header/footer, site-wide Custom CSS).
+Ali builds pages in Elementor directly.
 
-Global palette (Customizer → Colors) — map to the portfolio tokens:
+**Already configured via Elementor Site Settings** (edit any page with Elementor → ☰ → Site Settings):
+- Global Colors: Primary `#f4a203`, Secondary `#1b1a2a`, Text `#b9b6c9`, Accent `#c98600`
+- Global Fonts: Primary/Secondary = Space Grotesk (700/600), Text/Accent = Inter (400/500)
+- Background: ink `#100f1a` · Custom CSS: brand tokens + Tutor LMS overrides + amber links
+
+Reference palette — map to the portfolio tokens:
 
 | Role | Hex | Portfolio token |
 |---|---|---|
@@ -39,12 +46,15 @@ Global palette (Customizer → Colors) — map to the portfolio tokens:
 | Headings | `#f7f6f2` | cream |
 | Body text | `#928fa4` → use `#b9b6c9` for long-form lesson text (better contrast for reading) | muted |
 
-**Fonts** — use Kadence's built-in **"Load Google Fonts Locally"** (Customizer → General → Performance):
-1. Enable local font loading — Kadence downloads the woff2 files to the server and serves them first-party (same privacy/performance as the portfolio's self-hosted fonts, no manual upload).
-2. Set typography: headings = Space Grotesk, body = Inter.
-3. Then paste `brand.css` into Customizer → Additional CSS — skip its `@font-face` block (Kadence handles font loading; the block is only needed if you self-host manually at `wp-content/uploads/fonts/`).
+**Fonts:** Elementor loads Space Grotesk + Inter as Google Fonts when selected in Global Fonts
+(done). Optional perf upgrade later: self-host the woff2 files (they're in the portfolio's
+`public/fonts/`; an empty `wp-content/uploads/fonts/` folder already exists on the server)
+and register them as Elementor custom fonts.
 
-**Header/footer:** logo (reuse `public/logo.svg`), nav: Courses · About · alihaider.dev ← (link back to the main site, this cross-link matters for SEO). Footer: same socials as the portfolio + link to alihaider.dev.
+**Header/footer (next step):** build with Elementor **Theme Builder** (☰ → Theme Builder) —
+Header: logo (reuse `public/logo.svg`), nav: Courses · About · alihaider.dev ← (cross-link back
+to the main site, matters for SEO), amber pill CTA. Footer: same socials as the portfolio +
+link to alihaider.dev.
 
 ## Phase 3 — Tutor LMS (Free) configuration
 
