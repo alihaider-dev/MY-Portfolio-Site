@@ -8,7 +8,6 @@ import Testimonials from "./components/Testimonials"
 import About from "./components/About"
 import Process from "./components/Process"
 import Services from "./components/Services"
-import MockupStudio from "./components/MockupStudio"
 import Courses from "./components/Courses"
 import FAQ from "./components/FAQ"
 import Community from "./components/Community"
@@ -70,7 +69,6 @@ export default function App() {
         <About />
         <Process />
         <Services />
-        <MockupStudio />
         <Courses />
         <FAQ />
         <Community />
