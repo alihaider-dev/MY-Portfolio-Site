@@ -29,6 +29,10 @@ All copy/data lives in editable data files:
 - `src/data/site.js` — name, headline, socials, **Discord invite**, About, FAQ, stats, services, Turnstile site key, Web3Forms key.
 - `src/data/projects.js` — real client work (Kentucky Best, Rockford Ave, NAAIA LA).
 - `src/data/testimonials.js` — video testimonial + **real Fiverr** written reviews.
+- `src/data/courses.js` — Courses section: course cards, curriculum previews, waitlist
+  copy. Each course has a `live` flag — `false` shows "Join the Waitlist"; flip to
+  `true` (and set `url`) once the course exists on courses.alihaider.dev to show
+  "Enroll Free →".
 Components live in `src/components/`. Match the existing Tailwind + Framer Motion style.
 
 ## Contact form — DO NOT "simplify" it
